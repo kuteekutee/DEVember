@@ -10,6 +10,30 @@
       "StackName": "amplify-devember-dev-201419",
       "StackId": "arn:aws:cloudformation:ap-southeast-1:097937052374:stack/amplify-devember-dev-201419/7352f5e0-ae1f-11ee-ad24-061249130732",
       "AmplifyAppId": "d192cyavh1sz94"
+    },
+    "categories": {
+      "auth": {
+        "devember34000c05": {}
+      }
+    }
+  },
+  "devember": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-devember-devember-145959-authRole",
+      "UnauthRoleArn": "arn:aws:iam::097937052374:role/amplify-devember-devember-145959-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::097937052374:role/amplify-devember-devember-145959-authRole",
+      "Region": "ap-southeast-1",
+      "DeploymentBucketName": "amplify-devember-devember-145959-deployment",
+      "UnauthRoleName": "amplify-devember-devember-145959-unauthRole",
+      "StackName": "amplify-devember-devember-145959",
+      "StackId": "arn:aws:cloudformation:ap-southeast-1:097937052374:stack/amplify-devember-devember-145959/b8a4d940-aebc-11ee-8dde-02d7b4cdc53d",
+      "AmplifyAppId": "d2mivghlpd5mju"
+    },
+    "categories": {
+      "auth": {
+        "devember34000c05": {},
+        "devember5ebd4591": {}
+      }
     }
   }
 }

@@ -11,12 +11,16 @@ AWS Amplify v6 Authentication
 const DayDetailsScreen = () => {
   return (
     <View style={{ flex: 1 }}>
+      <Stack.Screen options={{ title: "Day 9: Auth " }} />
       <MarkdownDisplay>{description}</MarkdownDisplay>
+
       <Link href="/day9/protected" asChild>
         <Button title="Go to Protected Page" />
       </Link>
 
-      <Stack.Screen options={{ title: "Day 9: Auth " }} />
+      <Link href="/day9/auth/sign-in" asChild>
+        <Button title="Sign in" />
+      </Link>
     </View>
   );
 };

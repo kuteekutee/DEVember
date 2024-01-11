@@ -17,9 +17,32 @@ import AnimatedSplashScreen from "@/components/day4/AnimatedSplashScreen";
 import Animated, { FadeIn } from "react-native-reanimated";
 
 import { Amplify } from "aws-amplify";
+import { Authenticator } from "@aws-amplify/ui-react-native";
 import amplifyconfig from "@/amplifyconfiguration.json";
 Amplify.configure(amplifyconfig);
 
+import { ThemeProvider, Theme } from "@aws-amplify/ui-react-native";
+const theme: Theme = {
+  tokens: {
+    colors: {
+      font: {
+        primary: "{colors.pink.100}",
+        secondary: "{colors.pink.90}",
+        tertiary: "{colors.pink.80}",
+      },
+      background: {
+        primary: "{colors.purple.10}",
+        secondary: "{colors.purple.20}",
+        tertiary: "{colors.purple.40}",
+      },
+      border: {
+        primary: "{colors.pink.60}",
+        secondary: "{colors.pink.40}",
+        tertiary: "{colors.pink.20}",
+      },
+    },
+  },
+};
 // SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
@@ -55,17 +78,23 @@ export default function RootLayout() {
     );
   }
   return (
-    <GestureHandlerRootView style={{ flex: 1 }}>
-      <Animated.View style={{ flex: 1 }} entering={FadeIn}>
-        <Stack screenOptions={{}}>
-          <Stack.Screen
-            name="index"
-            options={{
-              title: "DEVember",
-            }}
-          />
-        </Stack>
-      </Animated.View>
-    </GestureHandlerRootView>
+    <Authenticator.Provider>
+      <Authenticator>
+        <ThemeProvider theme={theme}>
+          <GestureHandlerRootView style={{ flex: 1 }}>
+            <Animated.View style={{ flex: 1 }} entering={FadeIn}>
+              <Stack screenOptions={{}}>
+                <Stack.Screen
+                  name="index"
+                  options={{
+                    title: "DEVember",
+                  }}
+                />
+              </Stack>
+            </Animated.View>
+          </GestureHandlerRootView>
+        </ThemeProvider>
+      </Authenticator>
+    </Authenticator.Provider>
   );
 }
