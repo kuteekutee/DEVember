@@ -22,6 +22,7 @@ import amplifyconfig from "@/amplifyconfiguration.json";
 Amplify.configure(amplifyconfig);
 
 import { ThemeProvider, Theme } from "@aws-amplify/ui-react-native";
+import BiometricProvider from "@/components/day10/BiometricsProvider";
 const theme: Theme = {
   tokens: {
     colors: {
@@ -78,8 +79,8 @@ export default function RootLayout() {
     );
   }
   return (
-    <Authenticator.Provider>
-      <Authenticator>
+    <BiometricProvider>
+      <Authenticator.Provider>
         <ThemeProvider theme={theme}>
           <GestureHandlerRootView style={{ flex: 1 }}>
             <Animated.View style={{ flex: 1 }} entering={FadeIn}>
@@ -94,7 +95,7 @@ export default function RootLayout() {
             </Animated.View>
           </GestureHandlerRootView>
         </ThemeProvider>
-      </Authenticator>
-    </Authenticator.Provider>
+      </Authenticator.Provider>
+    </BiometricProvider>
   );
 }

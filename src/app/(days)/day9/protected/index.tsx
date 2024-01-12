@@ -3,20 +3,20 @@ import { View, Text, Button } from "react-native";
 import { useAuthenticator } from "@aws-amplify/ui-react-native";
 
 const ProtectedScreen = () => {
-  // const { signOut } = useAuthenticator();
+  const { signOut } = useAuthenticator();
 
-  // async function handleSignOut() {
-  //   try {
-  //     await signOut();
-  //   } catch (error) {
-  //     console.log("error signing out: ", error);
-  //   }
-  // }
-
-  function SignOutButton() {
-    const { signOut } = useAuthenticator();
-    return <Button title="Sign out" onPress={signOut} />;
+  async function handleSignOut() {
+    try {
+      await signOut();
+    } catch (error) {
+      console.log("error signing out: ", error);
+    }
   }
+
+  // function SignOutButton() {
+  //   const { signOut } = useAuthenticator();
+  //   return <Button title="Sign out" onPress={signOut} />;
+  // }
 
   return (
     <View style={{ padding: 10 }}>
@@ -26,9 +26,9 @@ const ProtectedScreen = () => {
         authenticated!
       </Text>
 
-      {/* <Button title="Sign out" onPress={handleSignOut} /> */}
+      <Button title="Sign out" onPress={handleSignOut} />
 
-      <SignOutButton />
+      {/* <SignOutButton /> */}
     </View>
   );
 };
